@@ -8,7 +8,14 @@
     "dev": "nodemon backend/server.js",
     "install-all": "npm install && cd backend && npm install"
   },
-  "keywords": ["real-estate", "property", "mysql"],
+  "keywords": [
+    "real-estate",
+    "property",
+    "mysql"
+  ],
   "author": "Your Team Name",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
