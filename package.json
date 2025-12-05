@@ -1,0 +1,14 @@
+{
+  "name": "real-estate-platform",
+  "version": "1.0.0",
+  "description": "Real estate management platform",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "install-all": "npm install && cd backend && npm install"
+  },
+  "keywords": ["real-estate", "property", "mysql"],
+  "author": "Your Team Name",
+  "license": "ISC"
+}
