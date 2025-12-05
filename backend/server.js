@@ -5,6 +5,8 @@ const dotenv = require('dotenv');
 // Load environment variables
 dotenv.config();
 
+require('./config/database');
+
 // Create Express app
 const app = express();
 

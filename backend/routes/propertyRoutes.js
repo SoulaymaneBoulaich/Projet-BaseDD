@@ -2,6 +2,17 @@
 const express = require('express');
 const router = express.Router();
 
+const pool = require('../config/db');   // import the pool
+
+router.get('/', async (req, res, next) => {
+  try {
+    const [rows] = await pool.query('SELECT * FROM Properties LIMIT 10');
+    res.json(rows);
+  } catch (err) {
+    next(err);   // will hit your error middleware in server.js
+  }
+});
+
 // Example property routes
 router.get('/', (req, res) => {
   // TODO: list properties
