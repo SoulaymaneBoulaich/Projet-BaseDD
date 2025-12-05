@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
-const pool = require('../config/db');   // import the pool
+const pool = require('../config/database');   // import the pool
 
 router.get('/', async (req, res, next) => {
   try {
