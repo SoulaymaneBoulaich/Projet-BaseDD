@@ -1,39 +1,41 @@
 // routes/propertyRoutes.js
 const express = require('express');
 const router = express.Router();
-const pool = require('../config/database'); // import the pool
 
-// GET /api/properties  → list properties from DB
+const pool = require('../config/database');   // import the pool
+
 router.get('/', async (req, res, next) => {
   try {
     const [rows] = await pool.query('SELECT * FROM Properties');
     res.json(rows);
   } catch (err) {
-    next(err); // will hit your error middleware in server.js
+    next(err);   // will hit your error middleware in server.js
   }
 });
 
-// POST /api/properties  → create property (placeholder for now)
+// Example property routes
+router.get('/', (req, res) => {
+  // TODO: list properties
+  res.json({ message: 'List properties' });
+});
+
 router.post('/', (req, res) => {
-  // TODO: create property using pool.query(...)
+  // TODO: create property
   res.json({ message: 'Create property' });
 });
 
-// GET /api/properties/:id  → get one property
 router.get('/:id', (req, res) => {
-  // TODO: get one property from DB
+  // TODO: get one property
   res.json({ message: `Get property with id ${req.params.id}` });
 });
 
-// PUT /api/properties/:id  → update property
 router.put('/:id', (req, res) => {
-  // TODO: update property in DB
+  // TODO: update property
   res.json({ message: `Update property with id ${req.params.id}` });
 });
 
-// DELETE /api/properties/:id  → delete property
 router.delete('/:id', (req, res) => {
-  // TODO: delete property in DB
+  // TODO: delete property
   res.json({ message: `Delete property with id ${req.params.id}` });
 });
 
