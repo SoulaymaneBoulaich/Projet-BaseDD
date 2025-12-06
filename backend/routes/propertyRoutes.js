@@ -18,6 +18,47 @@ router.post('/', (req, res) => {
   // TODO: create property using pool.query(...)
   res.json({ message: 'Create property' });
 });
+router.post('/', async (req, res, next) => {
+  try {
+    const {
+      title,
+      address,
+      city,
+      state,
+      zipcode,
+      price,
+      bedrooms,
+      bathrooms,
+      area_sqft,
+      property_type,
+      status
+    } = req.body;
+
+    const [result] = await pool.query(
+      `INSERT INTO Properties
+       (title, address, city, state, zipcode, price, bedrooms, bathrooms, area_sqft, property_type, status)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        title,
+        address,
+        city,
+        state,
+        zipcode,
+        price,
+        bedrooms,
+        bathrooms,
+        area_sqft,
+        property_type,
+        status || 'Available'
+      ]
+    );
+
+    res.status(201).json({ id: result.insertId });
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 // GET /api/properties/:id  → get one property
 router.get('/:id', (req, res) => {
