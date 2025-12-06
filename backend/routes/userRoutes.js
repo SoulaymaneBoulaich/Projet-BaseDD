@@ -1,7 +1,6 @@
 // routes/userRoutes.js
 const express = require('express');
 const router = express.Router();
-
 const pool = require('../config/database'); 
 
 router.get('/test-db', async (req, res, next) => {
